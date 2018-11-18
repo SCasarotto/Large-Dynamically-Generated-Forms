@@ -6,25 +6,25 @@ import Input from './Input'
 import styles from './../styles'
 
 class Body extends PureComponent {
-	render() {
-		const { albumId } = this.props
-		return (
-			<div style={styles.body}>
-				{fields.map((field) => {
-					const { fieldId, fieldName } = field
+  render() {
+    const { albumId } = this.props
+    return (
+      <div style={styles.body}>
+        {fields.map((field) => {
+          const { fieldId, fieldName } = field
 
-					return (
-						<div style={styles.formRow} key={fieldId}>
-							<label htmlFor={fieldId} style={styles.rowLabel}>
-								{fieldName}
-							</label>
-							<Input {...field} albumId={albumId} />
-						</div>
-					)
-				})}
-			</div>
-		)
-	}
+          return (
+            <div style={styles.formRow} key={fieldId}>
+              <label htmlFor={fieldId} style={styles.rowLabel}>
+                {fieldName}
+              </label>
+              <Input {...field} albumId={albumId} />
+            </div>
+          )
+        })}
+      </div>
+    )
+  }
 }
 
 export default Body
