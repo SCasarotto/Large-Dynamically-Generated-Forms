@@ -13,9 +13,7 @@ export class FormDataProvider extends PureComponent {
 
 	render() {
 		return (
-			<FormDataContext.Provider value={this.state}>
-				{this.props.children}
-			</FormDataContext.Provider>
+			<FormDataContext.Provider value={this.state}>{this.props.children}</FormDataContext.Provider>
 		)
 	}
 }

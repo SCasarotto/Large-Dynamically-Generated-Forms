@@ -8,7 +8,6 @@ class Title extends PureComponent {
 		return (
 			<div style={styles.titleWrapper}>
 				<h3 style={styles.title}>{albumName}</h3>
-				<div className="accordion__arrow" role="presentation" style={styles.sectionArrow} />
 			</div>
 		)
 	}

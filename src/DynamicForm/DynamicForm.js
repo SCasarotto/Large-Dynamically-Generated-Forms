@@ -6,10 +6,13 @@ import styles from './../styles'
 
 class App extends Component {
 	state = {}
+	handleSubmit = (e) => {
+		e.preventDefault()
+		console.log('Submitting Form! Form data:', this.state)
+	}
 	render() {
-		console.log(this.state)
 		return (
-			<form style={styles.form}>
+			<form style={styles.form} onSubmit={this.handleSubmit}>
 				<h1 style={styles.formTitle}>Dynamic Form</h1>
 				{albums.map((album) => {
 					const { albumId, albumName } = album
@@ -17,11 +20,6 @@ class App extends Component {
 						<div key={albumId} style={styles.albumWrapper}>
 							<div style={styles.titleWrapper}>
 								<h3 style={styles.title}>{albumName}</h3>
-								<div
-									className="accordion__arrow"
-									role="presentation"
-									style={styles.sectionArrow}
-								/>
 							</div>
 							<div style={styles.body}>
 								{fields.map((field) => {
@@ -31,10 +29,7 @@ class App extends Component {
 										case 'text':
 											return (
 												<div style={styles.formRow} key={fieldId}>
-													<label
-														htmlFor={fieldId}
-														style={styles.rowLabel}
-													>
+													<label htmlFor={fieldId} style={styles.rowLabel}>
 														{fieldName}
 													</label>
 													<input
@@ -43,8 +38,7 @@ class App extends Component {
 														style={styles.textInput}
 														onChange={(event) =>
 															this.setState({
-																[`${albumId}_${fieldId}`]: event
-																	.target.value,
+																[`${albumId}_${fieldId}`]: event.target.value,
 															})
 														}
 														value={this.state[`${albumId}_${fieldId}`]}
@@ -54,10 +48,7 @@ class App extends Component {
 										case 'textarea':
 											return (
 												<div style={styles.formRow} key={fieldId}>
-													<label
-														htmlFor={fieldId}
-														style={styles.rowLabel}
-													>
+													<label htmlFor={fieldId} style={styles.rowLabel}>
 														{fieldName}
 													</label>
 													<textarea
@@ -65,8 +56,7 @@ class App extends Component {
 														style={styles.textareaInput}
 														onChange={(event) =>
 															this.setState({
-																[`${albumId}_${fieldId}`]: event
-																	.target.value,
+																[`${albumId}_${fieldId}`]: event.target.value,
 															})
 														}
 														value={this.state[`${albumId}_${fieldId}`]}
@@ -76,35 +66,21 @@ class App extends Component {
 										case 'radio':
 											return (
 												<div style={styles.formRow} key={fieldId}>
-													<label style={styles.rowLabel}>
-														{fieldName}
-													</label>
+													<label style={styles.rowLabel}>{fieldName}</label>
 													{fieldOptions.map((option, index) => (
-														<div
-															style={styles.radioOptionRow}
-															key={`option_${index}`}
-														>
+														<div style={styles.radioOptionRow} key={`option_${index}`}>
 															<input
 																type="radio"
 																id={`${albumId}_${fieldId}_${option}`}
 																value={option}
 																onChange={(event) =>
 																	this.setState({
-																		[`${albumId}_${fieldId}`]: event
-																			.target.value,
+																		[`${albumId}_${fieldId}`]: event.target.value,
 																	})
 																}
-																checked={
-																	this.state[
-																		`${albumId}_${fieldId}`
-																	] === option
-																}
+																checked={this.state[`${albumId}_${fieldId}`] === option}
 															/>
-															<label
-																htmlFor={`${albumId}_${fieldId}_${option}`}
-															>
-																{option}
-															</label>
+															<label htmlFor={`${albumId}_${fieldId}_${option}`}>{option}</label>
 														</div>
 													))}
 												</div>
@@ -117,6 +93,7 @@ class App extends Component {
 						</div>
 					)
 				})}
+				<button type="submit">Submit</button>
 			</form>
 		)
 	}
