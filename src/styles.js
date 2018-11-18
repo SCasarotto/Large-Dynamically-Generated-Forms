@@ -13,21 +13,20 @@ export default {
 		marginTop: 0,
 		marginBottom: 30,
 	},
-	accordian: {},
-	accordianItem: {
+	albumWrapper: {
 		backgroundColor: '#d4d4d4',
 		marginBottom: 15,
 		borderRadius: 5,
 	},
-	accordianTitleWrapper: {
+	titleWrapper: {
 		padding: 15,
 	},
-	accordianTitle: {
+	title: {
 		fontSize: 24,
 		marginTop: 0,
 		marginBottom: 0,
 	},
-	accordianBody: {
+	body: {
 		paddingBottom: 15,
 		paddingLeft: 15,
 		paddingRight: 15,

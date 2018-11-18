@@ -9,7 +9,7 @@ class Body extends PureComponent {
 	render() {
 		const { albumId, state, setState } = this.props
 		return (
-			<div style={styles.accordianBody}>
+			<div style={styles.body}>
 				{fields.map((field) => {
 					const { fieldId, fieldName } = field
 

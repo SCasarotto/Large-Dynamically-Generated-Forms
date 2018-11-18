@@ -21,17 +21,15 @@ class Form extends PureComponent {
 		return (
 			<form style={styles.form} onSubmit={this.handleSubmit}>
 				<h1 style={styles.formTitle}>Big Dynamic Form</h1>
-				<div style={styles.accordian}>
-					{albums.map((album) => {
-						const { albumId, albumName } = album
-						return (
-							<div key={albumId} style={styles.accordianItem}>
-								<Title albumName={albumName} />
-								<Body albumId={albumId} />
-							</div>
-						)
-					})}
-				</div>
+				{albums.map((album) => {
+					const { albumId, albumName } = album
+					return (
+						<div key={albumId} style={styles.albumWrapper}>
+							<Title albumName={albumName} />
+							<Body albumId={albumId} />
+						</div>
+					)
+				})}
 				<button type="submit">Submit</button>
 			</form>
 		)
