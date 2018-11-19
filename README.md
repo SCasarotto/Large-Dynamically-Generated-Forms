@@ -1,6 +1,6 @@
 # Large Dynamically Generated Forms
 
-Inside of /src you will find:
+_Inside of /src you will find:_
 
 -   DynamicForm
     -   Simple dynamic form implementation.
@@ -9,9 +9,9 @@ Inside of /src you will find:
 -   DynamicFormOrganizedWithContext
     -   Added the use of Context to highlight how to reduce the number of components that must re-render.
 
-To run this demo simply:
+_To run this demo simply:_
 
-1. clone the report
-2. `yarn install` at the base folder
-3. run `yarn start`
+1. Clone the repo
+2. At the base folder run `yarn install`
+3. Run `yarn start`
 4. Toggle which component you are loading in the `index.js`.
