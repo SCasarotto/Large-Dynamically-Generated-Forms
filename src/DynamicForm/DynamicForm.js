@@ -5,7 +5,18 @@ import { albums, fields } from './../formData'
 import styles from './../styles'
 
 class App extends Component {
-  state = {}
+  constructor(props) {
+    super(props)
+    //Setup initial State
+    const state = {}
+    for (let i = 0; i < albums.length; i++) {
+      for (let j = 0; j < fields.length; j++) {
+        state[`${albums[i].albumId}_${fields[j].fieldId}`] = ''
+      }
+    }
+    this.state = state
+  }
+
   handleSubmit = (e) => {
     e.preventDefault()
     console.log('Submitting Form! Form data:', this.state)

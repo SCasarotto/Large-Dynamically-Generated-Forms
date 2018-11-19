@@ -20,7 +20,7 @@ class Form extends PureComponent {
   render() {
     return (
       <form style={styles.form} onSubmit={this.handleSubmit}>
-        <h1 style={styles.formTitle}>Big Dynamic Form</h1>
+        <h1 style={styles.formTitle}>Dynamic Form Organized With Context</h1>
         {albums.map((album) => {
           const { albumId, albumName } = album
           return (
