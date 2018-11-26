@@ -9,6 +9,9 @@ import styles from './../styles'
 class Form extends PureComponent {
   constructor(props) {
     super(props)
+
+    this.handleSetState = this.handleSetState.bind(this)
+
     //Setup initial State
     const state = {}
     for (let i = 0; i < albums.length; i++) {
@@ -17,6 +20,9 @@ class Form extends PureComponent {
       }
     }
     this.state = state
+  }
+  handleSetState(object) {
+    this.setState(object)
   }
   handleSubmit = (e) => {
     e.preventDefault()
@@ -31,11 +37,7 @@ class Form extends PureComponent {
           return (
             <div key={albumId} style={styles.albumWrapper}>
               <Title albumName={albumName} />
-              <Body
-                albumId={albumId}
-                state={this.state}
-                setState={(object) => this.setState(object)}
-              />
+              <Body albumId={albumId} state={this.state} setState={this.handleSetState} />
             </div>
           )
         })}

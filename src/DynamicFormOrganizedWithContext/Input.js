@@ -1,11 +1,16 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
 
 import { FormDataContext } from './Context'
 
 import styles from './../styles'
 
-class Input extends PureComponent {
+class Input extends Component {
   static contextType = FormDataContext
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    console.log(nextProps, nextState, nextContext, this.props, this.state)
+  }
+
   render() {
     const { fieldId, fieldType, fieldOptions, albumId } = this.props
     const { formData, setState } = this.context
