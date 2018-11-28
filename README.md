@@ -5,9 +5,10 @@ _Inside of /src you will find:_
 -   DynamicForm
     -   Simple dynamic form implementation.
 -   DynamicFormOrganized
-    -   Organized each part into their own components to better see how the tree renders and made them pure components.
+    -   Organized each part into their own components to better see how the tree renders
+    -   Converted `Components` to `PureComponents`.
 -   DynamicFormOrganizedWithContext
-    -   Added the use of Context to highlight how to reduce the number of components that must re-render.
+    -   Added the use of Context to reduce the number of components that must re-render.
 -   DynamicFormOrganizedWithContextHooks
     -   Migrated components to function components through the use of hooks.
 
