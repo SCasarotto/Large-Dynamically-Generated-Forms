@@ -4,7 +4,7 @@ import { albums, fields } from './../formData'
 
 export const FormDataContext = React.createContext()
 
-const computeFormData = () => {
+const computeInitialState = () => {
   const data = {}
   for (let i = 0; i < albums.length; i++) {
     for (let j = 0; j < fields.length; j++) {
@@ -15,7 +15,7 @@ const computeFormData = () => {
 }
 
 export const FormDataProvider = (props) => {
-  const formData = useMemo(() => computeFormData(), [albums, fields])
+  const formData = useMemo(() => computeInitialState(), [albums, fields])
 
   const [state, setState] = useState({ formData })
 
